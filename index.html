@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reencontro — Um convite para olhar para dentro.">
+  <title>Reencontro | Um convite para olhar para dentro</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f2ec;
+      color: #282621;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(245, 242, 236, 0.95);
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      border-bottom: 1px solid rgba(40, 38, 33, 0.08);
+    }
+
+    .logo {
+      font-size: 18px;
+      letter-spacing: 4px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #282621;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(55px, 10vw, 110px);
+      font-weight: 400;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 35px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 17px;
+      color: #5e5a51;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid #282621;
+      color: #282621;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #282621;
+      color: #f5f2ec;
+    }
+
+    section {
+      padding: 110px 8%;
+    }
+
+    .section-small {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 25px;
+      color: #777267;
+    }
+
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(35px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 35px;
+    }
+
+    .text {
+      font-size: 18px;
+      color: #555149;
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      background: #292823;
+      color: #f5f2ec;
+      text-align: center;
+      padding: 130px 10%;
+    }
+
+    .quote p {
+      max-width: 900px;
+      margin: auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 5vw, 55px);
+      line-height: 1.35;
+    }
+
+    .journey {
+      background: #ebe6dd;
+    }
+
+    .chapters {
+      max-width: 900px;
+      margin: 60px auto 0;
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 30px;
+      padding: 40px 0;
+      border-top: 1px solid #c8c1b5;
+    }
+
+    .chapter-number {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #777267;
+    }
+
+    .chapter h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .chapter p {
+      color: #68635a;
+    }
+
+    .videos {
+      text-align: center;
+    }
+
+    .video-grid {
+      max-width: 1000px;
+      margin: 50px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .video-card {
+      background: #e8e3da;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .video-card span {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    .next-event {
+      background: #d9d1c4;
+      text-align: center;
+    }
+
+    .next-event h3 {
+      margin-bottom: 15px;
+    }
+
+    .event-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 7vw, 75px);
+      margin: 25px 0;
+    }
+
+    footer {
+      background: #292823;
+      color: #f5f2ec;
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    footer .footer-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #bdb8ae;
+      font-size: 14px;
+    }
+
+    @media (max-width: 750px) {
+      nav .links {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: 3px;
+      }
+
+      section {
+        padding: 80px 7%;
+      }
+
+      .chapter {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">REENCONTRO</div>
+
+    <div class="links">
+      <a href="#sobre">O projeto</a>
+      <a href="#edicoes">Edições</a>
+      <a href="#reflexoes">Reflexões</a>
+      <a href="#proximo">Próximo Reencontro</a>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+
+        <h1>REENCONTRO</h1>
+
+        <h2>Um convite para olhar para dentro.</h2>
+
+        <p>
+          Em um mundo que nos convida o tempo todo a olhar para fora,
+          o Reencontro é um espaço para desacelerar, refletir e revisitar
+          aquilo que realmente importa.
+        </p>
+
+        <a href="#sobre" class="button">
+          Conheça o projeto
+        </a>
+
+      </div>
+    </section>
+
+
+    <section id="sobre">
+
+      <div class="section-small">
+
+        <p class="eyebrow">O projeto</p>
+
+        <h3>
+          Toda transformação verdadeira começa quando temos coragem de olhar para dentro.
+        </h3>
+
+        <p class="text">
+          Vivemos cercadas por informações, comparações e expectativas.
+          E, enquanto tentamos corresponder ao que esperam de nós,
+          muitas vezes nos afastamos de quem realmente somos.
+        </p>
+
+        <p class="text">
+          O Reencontro nasce como um convite para fazer o caminho de volta.
+          Um espaço onde mulheres podem olhar para sua história,
+          fortalecer suas raízes, reconhecer sua essência e despertar
+          para a vida que foram chamadas a viver.
+        </p>
+
+        <p class="text">
+          Cada edição propõe uma experiência diferente.
+          Mas todas carregam o mesmo propósito:
+          criar espaço para aquilo que precisa ser despertado dentro de cada mulher.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="quote">
+
+      <p>
+        “O Reencontro existe para despertar em cada mulher aquilo que Deus já colocou dentro dela,
+        mas que, por diferentes motivos, acabou sendo silenciado ao longo da vida.”
+      </p>
+
+    </section>
+
+
+    <section id="edicoes" class="journey">
+
+      <div class="section-small">
+
+        <p class="eyebrow">A jornada</p>
+
+        <h3>
+          Cada Reencontro é um novo capítulo.
+        </h3>
+
+        <p class="text">
+          Os temas mudam. As experiências também.
+          Mas o convite permanece o mesmo: olhar para dentro.
+        </p>
+
+      </div>
+
+
+      <div class="chapters">
+
+        <div class="chapter">
+          <div class="chapter-number">CAPÍTULO 01</div>
+          <div>
+            <h4>Reencontro</h4>
+            <p>Onde tudo começou. Uma experiência online e o início de uma jornada.</p>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+          <div class="chapter-number">CAPÍTULO 02</div>
+          <div>
+            <h4>Volta ao Eixo</h4>
+            <p>Um convite para reconhecer onde você está e reencontrar a direção.</p>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+          <div class="chapter-number">CAPÍTULO 03</div>
+          <div>
+            <h4>Raízes</h4>
+            <p>
+              Uma experiência para revisitar a própria história,
+              compreender as raízes e ressignificar aquilo que sustenta quem somos.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+          <div class="chapter-number">CAPÍTULO 04</div>
+          <div>
+            <h4>Raízes — Online</h4>
+            <p>Uma nova forma de viver a experiência Raízes, para além das distâncias.</p>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+          <div class="chapter-number">CAPÍTULO 05</div>
+          <div>
+            <h4>Essência</h4>
+            <p>
+              Remover o excesso e abrir espaço para reconhecer
+              aquilo que sempre esteve aí.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="reflexoes" class="videos">
+
+      <p class="eyebrow">Reflexões</p>
+
+      <h3>
+        O Reencontro continua.
+      </h3>
+
+      <p class="text">
+        Reflexões para continuar olhando para dentro,
+        mesmo depois que a experiência termina.
+      </p>
+
+
+      <div class="video-grid">
+
+        <div class="video-card">
+          <span>Em breve</span>
+        </div>
+
+        <div class="video-card">
+          <span>Em breve</span>
+        </div>
+
+        <div class="video-card">
+          <span>Em breve</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="proximo" class="next-event">
+
+      <p class="eyebrow">Próxima experiência</p>
+
+      <div class="event-title">
+        Reencontro Essência
+      </div>
+
+      <p class="text">
+        Presencialmente em Niterói.
+        Uma manhã para remover o excesso e abrir espaço
+        para aquilo que sempre esteve aí.
+      </p>
+
+      <a href="#" class="button">
+        Quero saber mais
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="footer-logo">
+      REENCONTRO
+    </div>
+
+    <p>
+      Um convite para olhar para dentro.
+    </p>
+
+  </footer>
+
+</body>
+</html>
